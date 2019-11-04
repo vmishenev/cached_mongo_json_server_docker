@@ -13,7 +13,7 @@ import json
 
 
 
-client = MongoClient(username="user", password="password", host="mongo", port=27017)
+client = MongoClient(host='mongodb',username="user", password="password", authSource="mydb", port=27017)
 db=client.mydb
 coll = db.mycoll
 
