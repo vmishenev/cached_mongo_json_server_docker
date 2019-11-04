@@ -13,7 +13,7 @@ import json
 
 
 
-client = MongoClient(host='mongodb',username="user", password="password", authSource="mydb", port=27017)
+client = MongoClient(host='mongodb', port=27017)
 db=client.mydb
 coll = db.mycoll
 
@@ -47,7 +47,7 @@ while True:
             if db_doc == None:
                response["Status"] = "Not found"
             else:
-               response["message"] = db_doc["msg"].decode('utf-8')
+               response["message"] = db_doc["msg"]
                response["Status"] = "OK"
                cache.set(obj_data["key"], response["message"]) #update chache
         else:
